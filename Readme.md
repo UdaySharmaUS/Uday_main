@@ -46,7 +46,7 @@ For the backend, configure MySQL credentials in `backend/config/config.js`:
 const sequelize = new Sequelize(
   'compound_db', //your database name
   'root', //your root name
-  '', //your password (not mentioned here for the sequrity purposes)
+  '', //your password (not mentioned here for the security purposes)
   {
     host: 'localhost',
     dialect: 'mysql',
