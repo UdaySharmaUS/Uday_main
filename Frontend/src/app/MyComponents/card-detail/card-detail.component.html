@@ -1,0 +1,23 @@
+<div class="page-container">
+    <div class="card-container">
+        <div *ngIf="compound; else loading" class="card">
+            <img [src]="compound.image" alt="{{ compound.imageAttribution }}" class="compound-image">
+            <h1 *ngIf="!isEditing" class="compound-title">{{ compound.name }}</h1>
+            <input *ngIf="isEditing" [(ngModel)]="compound.name" placeholder="Name" class="compound-title">
+
+            <p *ngIf="!isEditing" class="compound-description">{{ compound.description }}</p>
+            <textarea *ngIf="isEditing" [(ngModel)]="compound.description" placeholder="Description"
+                class="compound-description"></textarea>
+
+            <p class="compound-updated">Last modified: {{ compound.updatedAt }}</p>
+
+            <button (click)="toggleEdit()" class="edit-btn">
+                {{ isEditing ? 'Submit' : 'Edit' }}
+            </button>
+        </div>
+    </div>
+
+    <ng-template #loading>
+        <p>Loading compound details...</p>
+    </ng-template>
+</div>
